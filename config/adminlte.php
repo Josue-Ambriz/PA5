@@ -237,6 +237,26 @@ return [
         ],
 
         // Sidebar items:
+        [
+            'type' => 'sidebar-menu-search',
+            'text' => 'search',
+        ],     
+        [
+            'text' => 'To Do\'s',
+            'url'  => 'todos',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [         
+            'text' => 'Calendar',
+            'url'  => 'calendar',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+        ],
+        [         
+            'text' => 'Board',
+            'url'  => 'board',
+            'icon' => 'fas fa-fw fa-board-alt',
+        ],
+        
     ],
 
     /*
