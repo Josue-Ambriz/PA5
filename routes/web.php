@@ -24,3 +24,7 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('calender');
 });
+
+Route::get('/', function () {
+    return view('board');
+});
