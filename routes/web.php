@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+URL::forceScheme('https');
 Route::get('/', function () {return view('welcome');});
 Route::get('todos', function () {return view('todos');});
 Route::get('calendar', function () {return view('calendar');});
