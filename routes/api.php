@@ -20,6 +20,6 @@ use Iluminate\Support\Facades\DB;
 });*/
 
 Route::get('/events-feed', function() {
-    $events-feed = DB::table('events-feed')->get();
-    return $events-feed->toJson(JSON_UNESCAPED_SLASHES);
+    $events = DB::table('events-feed')->get();
+    return $events->toJson(JSON_UNESCAPED_SLASHES);
 });
