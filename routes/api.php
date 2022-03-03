@@ -19,7 +19,7 @@ use Iluminate\Support\Facades\DB;
     return $request->user();
 });*/
 
-Route::get('/events', function() {
-    $events= DB::table('events')->get();
+Route::get('/events-feed', function() {
+    $events = DB::table('events-feed')->get();
     return $events->toJson(JSON_UNESCAPED_SLASHES);
 });
