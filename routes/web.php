@@ -21,7 +21,7 @@ Route::get('/', function () {return view('welcome');});
 Route::get('/todos', function () {return view('todos');});
 Route::get('/calendar', function () {return view('calendar');});
 
-//Route::get('/event-feed', function () {$path = storage_path()."/json/events.json"; return json_decode(file_get_contents($path), true);});
+Route::get('/event-feed', function () {echo json_encode(array(array("title": "CSE4500 Class", "start": "2022-02-23T17:30:00", "end": "2022-02-23T18:45:00", array("title": "CSE4500 Class", "start": "2022-02-28T17:30:00", "end": "2022-02-28T18:45:00")));});
 
 
 
