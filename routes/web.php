@@ -20,8 +20,9 @@ Route::get('/db-test', function () { try{\DB::connection()->getPDO();
                                           echo 'Database Connected: ' .$db_name;
                                         } catch (\Exception $e) {echo 'None':}
                                    });
-Route::get('/', function () {return view('welcome');});
+Route::get('/home', function () {return view('welcome');});
 Route::get('/todos', function () {return view('todos');});
 Route::get('/calendar', function () {return view('calendar');});
+Route::get('/event-feed', function () {$path = storage_path()."/json/events.json"; return json_decode(file_get_contents($path), true);});
 Route::get('/board', function () {return view('board');});
 Route::fallback(function () {return view('error');});
