@@ -23,7 +23,7 @@ Route::get('/db-test', function () {
     }
 });
 
-Route::get('/db-test', function () {try{\DB::connection()->getPDO(); $db_name = \DB::connection()->getDatabaseName(); echo 'Database Connected: '.$db_name;} catch (\Exception $e) {echo 'None';}});
+//Route::get('/db-test', function () {try{\DB::connection()->getPDO(); $db_name = \DB::connection()->getDatabaseName(); echo 'Database Connected: '.$db_name;} catch (\Exception $e) {echo 'None';}});
 Route::get('/db-migrate', function () {Artisan:call('migrate'); echo Artisan::output();});
 Route::get('/', function () {return view('welcome');});
 Route::get('/todos', function () {return view('todos');});
