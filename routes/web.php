@@ -43,5 +43,6 @@ Route::get('/events-feed', function () {
           ),
         );
         return json_encode($data);
+});
 Route::get('/board', function () {return view('board');});
 Route::fallback(function () {return view('error');});
