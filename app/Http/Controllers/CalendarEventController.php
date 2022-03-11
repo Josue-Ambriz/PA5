@@ -14,8 +14,8 @@ class CalendarEventController extends Controller
      */
     public function index()
     {
-        $events = CalendarEvents::select('title', 'begin AS start', 'finish AS end')->get();
-        return json_encode( compact('events')['events'] );
+        $cEvents = CalendarEvents::all();
+        return view('events-feed',compact('cEvents'));
     } 
 
    /**
@@ -25,7 +25,7 @@ class CalendarEventController extends Controller
      */
     public function create()
     {
-        return view('calendarevent.create');
+        return view('cEvents.create');
     }
 
     /**
@@ -38,20 +38,22 @@ class CalendarEventController extends Controller
     {
        $validated = $request->validate([ 
            'title' => 'required',
-           'begin' => 'required',
-           'finish' => 'required',
+           'starting' => 'required',
+           'ending' => 'required',
         ]);
         
-       $calendar = CalendarEvent::create([
+        json_encode($request->starting);
+        
+       $event = CalendarEvent::create([
             'title' => $request->title,
-            'begin' => date($request->begin), 
-            'finish' => date($request->finish),
-            //'begin' => $request->begin.$request->offset,
-            //'finish' => $request->finish.$request->offset,
+            //'starting' => date($request->starting), 
+            //'ending' => date($request->starting),
+            'begin' => $request->starting,
+            'finish' => $request->ending,
         ]);
         
-        return redirect('/calendar');
-        //return $this->index();
+        //return redirect('/calendar');
+        return $this->index();
     }
 
     /**
@@ -60,12 +62,12 @@ class CalendarEventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*public function show($id)
+    public function show($id)
     {
-        $events = CalendarEvent::find($id);
-        return view('calendarevent.show',compact('calendar'));
-    }*/
-
+        $event = CalendarEvent::find($id);
+        return view('cEvents.show',compact('event'));
+    }
+        
     /**
      * Show the form for editing the specified resource.
      *
