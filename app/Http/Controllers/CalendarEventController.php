@@ -14,7 +14,7 @@ class CalendarEventController extends Controller
      */
     public function index()
     {
-        $cEvents = CalendarEvents::all();
+        $cEvents = CalendarEvent::all();
         return view('events-feed',compact('cEvents'));
     } 
 
@@ -46,13 +46,9 @@ class CalendarEventController extends Controller
         
        $event = CalendarEvent::create([
             'title' => $request->title,
-            //'starting' => date($request->starting), 
-            //'ending' => date($request->starting),
             'starting' => $request->starting,
             'ending' => $request->ending,
         ]);
-        
-        //return redirect('/calendar');
         return $this->index();
     }
 
@@ -65,7 +61,7 @@ class CalendarEventController extends Controller
     public function show($id)
     {
         $event = CalendarEvent::find($id);
-        return view('cEvents.show',compact('event'));
+        return view('CEvents.show',compact('event'));
     }
         
     /**
