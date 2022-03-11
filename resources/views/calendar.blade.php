@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-<a href="{{ route('cEvents.create') }} " class="btn btn-primary" >Create</a>
+<a href="{{ route('calendarEvents.create') }} " class="btn btn-primary" >Create</a>
 @stop
 
 @section('css')
