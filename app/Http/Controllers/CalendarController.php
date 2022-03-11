@@ -49,8 +49,8 @@ class CalendarController extends Controller
             'finish' => $request->finish
         ]);
         
-        //return redirect('/calendar');
-        return $this->index();
+        return redirect('/calendar');
+        //return $this->index();
     }
 
     /**
