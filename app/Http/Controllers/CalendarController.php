@@ -15,7 +15,7 @@ class CalendarController extends Controller
     public function index()
     {
         $calendars = Calendar::select('title', 'begin AS start', 'finish AS end')->get();
-        return view('calendar', compact('calendar')); 
+        return view('calendar',compact('calendar')); 
     }
 
    /**
@@ -42,11 +42,12 @@ class CalendarController extends Controller
            'finish' => 'required',
         ]);
         
-       $events = Calendar::create([
-        'title' => $request->title,
-        'begin' => date($request->begin),
-        'finish'=> date($request->finish)
+       $calendar = Calendar::create([
+            'title' => $request->title,
+            'begin' => $request->begin, 
+            'finish' => $request->finish
         ]);
+        
         //return redirect('/calendar');
         return $this->index();
     }
