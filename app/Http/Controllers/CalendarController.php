@@ -47,7 +47,7 @@ class CalendarController extends Controller
         'begin' => date($request->begin),
         'finish'=> date($request->finish)
         ]);
-        return redirect('/calendar')
+        return redirect('/calendar');
     }
 
     /**
