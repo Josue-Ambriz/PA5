@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+/*@extends('adminlte::page')
 
 @section('title', 'Calendar')
 
@@ -26,4 +26,4 @@ $( document ).ready(function() {
     document.getElementById("finish").value=tEnd.toISOString().slice(0, 16);
 })
 </script>
-@stop
+@stop*/
