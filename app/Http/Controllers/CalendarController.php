@@ -14,8 +14,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
-        return view('todos',compact('todos')); 
+        $events = Event::select('title', 'start_at AS start', 'end_at AS end')->get();
+        return view('calendar',compact('events')); 
     }
 
    /**
@@ -25,7 +25,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        return view('todos.create');
+        return view('calendar.create');
     }
 
     /**
@@ -38,14 +38,14 @@ class TodoController extends Controller
     {
        $validated = $request->validate([ 
            'title' => 'required',
-           'start(datetime)' => 'required',
-           'end(datetime)' => 'required',
+           'begin' => 'required',
+           'finish' => 'required',
         ]);
         
        $todo = Calendar::create([
         'title' => $request->title,
-        'start(datetime)' => date($request->start(datetime)),
-        'end(datetime)'=> date($request->end(datetime))
+        'begin' => date($request->begin),
+        'finish'=> date($request->finish)
         ]);
         return $this->index();
     }
