@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Calendar extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','begin','final'];
+    protected $fillable = ['title','begin','finish'];
 }
