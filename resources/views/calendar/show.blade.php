@@ -22,8 +22,8 @@ $( document ).ready(function() {
     let tEnd = end-z;
     tStart = new Date(tStart);
     tEnd = new Date(tEnd);
-    document.getElementById("startdatetime").value=tStart.toISOString().slice(0, 16);
-    document.getElementById("enddatetime").value=tEnd.toISOString().slice(0, 16);
+    document.getElementById("begin").value=tStart.toISOString().slice(0, 16);
+    document.getElementById("finish").value=tEnd.toISOString().slice(0, 16);
 })
 </script>
 @stop
