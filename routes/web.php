@@ -25,6 +25,6 @@ Route::get('/events-feed', function () {$data = array(array('title' => 'CSE4500 
 Route::get('/board', function () {return view('board');});
 
 Route::resource('/todos', TodoController::class);
-Route::resource('/calendar-events', CalendarEventController::class);
+Route::resource('/calendar', CalendarEventController::class);
 
 Route::fallback(function () {return view('error');});
