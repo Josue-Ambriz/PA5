@@ -51,10 +51,10 @@ class CalendarController extends Controller
         
        $calendar = Calendar::create([
             'title' => $request->title,
-            //'begin' => $request->begin, 
-            //'finish' => $request->finish
-            'begin' => $request->begin.$request->offset,
-            'finish' => $request->finish.$request->offset,
+            'begin' => $request->begin, 
+            'finish' => $request->finish,
+            //'begin' => $request->begin.$request->offset,
+            //'finish' => $request->finish.$request->offset,
         ]);
         
         //return redirect('/calendar');
