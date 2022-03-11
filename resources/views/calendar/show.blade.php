@@ -15,8 +15,8 @@
 @section('js')
 <script>
 $( document ).ready(function() {
-    var start = new Date("{{$calendar->startdatetime;}}");
-    var end = new Date("{{$calendar->enddatetime;}}");
+    var start = new Date("{{$calendar->begin;}}");
+    var end = new Date("{{$calendar->finish;}}");
     let z = start.getTimezoneOffset() * 60 * 1000;
     let tStart = start-z;
     let tEnd = end-z;
