@@ -44,7 +44,8 @@ class TodoController extends Controller
         
        $todo = Calendar::create([
         'title' => $request->title,
-        'progress' => $request->progress, 
+        'start(datetime)' => date($request->start(datetime)),
+        'end(datetime)'=> date($request->end(datetime))
         ]);
         return $this->index();
     }
