@@ -48,8 +48,8 @@ class CalendarEventController extends Controller
             'title' => $request->title,
             //'starting' => date($request->starting), 
             //'ending' => date($request->starting),
-            'begin' => $request->starting,
-            'finish' => $request->ending,
+            'starting' => $request->starting,
+            'ending' => $request->ending,
         ]);
         
         //return redirect('/calendar');
