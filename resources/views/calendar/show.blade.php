@@ -7,10 +7,10 @@
 @stop
 
 @section('content')
-  <h2>{{ $calendar->title; }}</h2>
+  //<h2>{{ $calendar->title; }}</h2>
   <div>Starts: <x-adminlte-input name="begin" id="begin" type="datetime-local" label="Start date and time" value="" /></div>
   <div>Ends: <x-adminlte-input name="finish" id="finish" type="datetime-local" label="End date and time" value="" /></div>
-@stop
+//@stop
 
 @section('js')
 <script>
@@ -26,4 +26,4 @@ $( document ).ready(function() {
     document.getElementById("finish").value=tEnd.toISOString().slice(0, 16);
 })
 </script>
-@stop */
+@stop
