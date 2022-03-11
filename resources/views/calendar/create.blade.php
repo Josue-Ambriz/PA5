@@ -3,7 +3,7 @@
 @section('title', 'Calendar')
 
 @section('content_header')
-    <h1>Calender Events</h1>
+    <h1>Calendar</h1>
 @stop
 
 @section('content')
