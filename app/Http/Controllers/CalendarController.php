@@ -12,18 +12,18 @@ class CalendarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function test()
-    {
-        $calendar = Calendar::select('title', 'begin AS start', 'finish AS end')->get();
-        //return view('calendar',compact('calendar'));
-        //return json_encode(compact('events')['events']);
-        return $calendar->toJson();
-    }
-    
     public function index()
     {
+        $events = Calendar::select('title', 'begin AS start', 'finish AS end')->get();
+        //return view('calendar',compact('calendar'));
+        return json_encode(compact('events')['events']);
+        //return $calendar->toJson();
+    }
+    
+    /*public function index()
+    {
       return view('calendar');
-    }    
+    } */   
 
    /**
      * Show the form for creating a new resource.
@@ -51,14 +51,14 @@ class CalendarController extends Controller
         
        $calendar = Calendar::create([
             'title' => $request->title,
-            //'begin' => $request->begin, 
-            //'finish' => $request->finish,
-            'begin' => $request->begin.$request->offset,
-            'finish' => $request->finish.$request->offset,
+            'begin' => date($request->begin), 
+            'finish' => date($request->finish),
+            //'begin' => $request->begin.$request->offset,
+            //'finish' => $request->finish.$request->offset,
         ]);
         
-        //return redirect('/calendar');
-        return $this->index();
+        return redirect('/calendar');
+        //return $this->index();
     }
 
     /**
@@ -67,11 +67,11 @@ class CalendarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /*public function show($id)
     {
         $calendar = Calendar::find($id);
         return view('calendar.show',compact('calendar'));
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
