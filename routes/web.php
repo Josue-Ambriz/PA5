@@ -20,11 +20,11 @@ Route::get('/db-test', function () {try{\DB::connection()->getPDO(); $db_name = 
 Route::get('/db-migrate', function () {Artisan::call('migrate'); echo Artisan::output();});
 Route::get('/', function () {return view('welcome');});
 //Route::get('/todos', function () {return view('todos');});
-//Route::get('/calendar', function () {return view('calendar');});
+Route::get('/calendar', function () {return view('calendar');});
 Route::get('/events-feed', function () {$data = array(array('title' => 'CSE4500 Class', 'start' => '2022-02-23T17:30:00', 'end' => '2022-02-23T18:45:00'), array('title' => 'CSE4500 Class', 'start' => '2022-02-28T17:30:00', 'end' => '2022-02-28T18:45:00'),); return json_encode($data);});
 Route::get('/board', function () {return view('board');});
 
 Route::resource('/todos', TodoController::class);
-Route::resource('/calendar', CalendarEventController::class);
+Route::resource('/calendar-events', CalendarEventController::class);
 
 Route::fallback(function () {return view('error');});
