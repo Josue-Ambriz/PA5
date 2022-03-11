@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('calendarevent', function (Blueprint $table) {
+        Schema::create('calendar_events', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->dateTime('begin');
-            $table->dateTime('finish');
+            $table->date('starting');
+            $table->date('ending');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calendarevent');
+        Schema::dropIfExists('calendar_events');
     }
 };
