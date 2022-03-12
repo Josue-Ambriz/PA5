@@ -21,8 +21,7 @@ Route::get('/db-migrate', function () {Artisan::call('migrate'); echo Artisan::o
 Route::get('/', function () {return view('welcome');});
 //Route::get('/todos', function () {return view('todos');});
 Route::get('/calendar', function () {return view('calendar');});
-//Route::get('/events-feed', function () {
-$arr = array(["title"=>"CSE4500 Class","start"=>"2022-02-23T17:30:00","end"=>"2022-02-23T18:45:00"],["title"=>"CSE4500 Class","start"=>"2022-02-28T17:30:00","end"=>"2022-02-28T18:45:00"]); echo json_encode($arr);});
+Route::get('/events-feed', function () {$arr = array(["title"=>"CSE4500 Class","start"=>"2022-02-23T17:30:00","end"=>"2022-02-23T18:45:00"],["title"=>"CSE4500 Class","start"=>"2022-02-28T17:30:00","end"=>"2022-02-28T18:45:00"]); echo json_encode($arr);});
 //Route::get('/events-feed', function () {return view('events-feed');});
 Route::get('/board', function () {return view('board');});
 
