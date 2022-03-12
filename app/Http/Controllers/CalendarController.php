@@ -42,8 +42,6 @@ class CalendarController extends Controller
            'ending' => 'required',
         ]);
         
-        json_encode($request->starting);
-        
        $calendar = Calendar::create([
             'title' => $request->title,
             'starting' => $request->starting,
