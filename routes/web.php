@@ -26,6 +26,6 @@ Route::get('/events-feed', function () {return view('events-feed');});
 Route::get('/board', function () {return view('board');});
 
 Route::resource('/todos', TodoController::class);
-Route::resource('/event', CalendarController::class);
+Route::resource('/calendar', CalendarController::class);
 
 Route::fallback(function () {return view('error');});
