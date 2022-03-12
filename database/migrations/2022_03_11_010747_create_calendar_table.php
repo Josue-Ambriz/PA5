@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->date('starting');
-            $table->date('ending');
+            $table->datetime('starting');
+            $table->datetime('ending');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calendar_events');
+        Schema::dropIfExists('calendars');
     }
 };
