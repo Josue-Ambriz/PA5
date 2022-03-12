@@ -27,6 +27,6 @@ $arr = array(["title"=>"CSE4500 Class","start"=>"2022-02-23T17:30:00","end"=>"20
 Route::get('/board', function () {return view('board');});
 
 Route::resource('/todos', TodoController::class);
-Route::resource('/calendarz', CalendarController::class);
+Route::resource('/event', CalendarController::class);
 
 Route::fallback(function () {return view('error');});
