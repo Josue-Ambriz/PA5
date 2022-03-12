@@ -14,8 +14,8 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $calendars = Calendar::select('title', 'starting AS start', 'ending AS end')->get();
-        return view('calendar',compact('calendars'));
+        $events = Calendar::select('title', 'starting AS start', 'ending AS end')->get();
+        return json_encode(compact('events')['events'] );
     } 
 
    /**
@@ -25,7 +25,7 @@ class CalendarController extends Controller
      */
     public function create()
     {
-        return view('calendars.create');
+        return view('events.create');
     }
 
     /**
@@ -44,11 +44,11 @@ class CalendarController extends Controller
         
        $calendar = Calendar::create([
             'title' => $request->title,
-            'starting' => $request->starting,
-            'ending' => $request->ending,
+            'starting' => date($request->starting),
+            'ending' => date($request->ending), 
         ]);
         
-        return $this->index();
+        return redirect('/calendar');
     }
 
     /**
@@ -60,7 +60,7 @@ class CalendarController extends Controller
     public function show($id)
     {
         $calendar = Calendar::find($id);
-        return view('calendars.show',compact('calendar'));
+        return view('calendars.show',compact('calendars'));
     }
         
     /**
