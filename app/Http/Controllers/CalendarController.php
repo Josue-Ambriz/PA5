@@ -59,8 +59,8 @@ class CalendarController extends Controller
      */
     public function show($id)
     {
-        $calendar = Calendar::find($id);
-        return view('calendars.show',compact('calendars'));
+        $events = Calendar::find($id);
+        return view('events.show',compact('events'));
     }
         
     /**
