@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
-use App\Http\Controllers\CalendarEventController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
