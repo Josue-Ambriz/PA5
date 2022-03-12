@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CalendarEvent;
 
-class CalendarEventController extends Controller
+class CalendarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CalendarEventController extends Controller
      */
     public function index()
     {
-        $calendarEvents = CalendarEvent::all();
-        return view('events-feed',compact('calendarEvents'));
+        $calendars = Calendar::all();
+        return view('calendar',compact('calendars'));
     } 
 
    /**
@@ -25,7 +25,7 @@ class CalendarEventController extends Controller
      */
     public function create()
     {
-        return view('calendarEvents.create');
+        return view('calendars.create');
     }
 
     /**
@@ -44,11 +44,12 @@ class CalendarEventController extends Controller
         
         json_encode($request->starting);
         
-       $event = CalendarEvent::create([
+       $calendar = Calendar::create([
             'title' => $request->title,
             'starting' => $request->starting,
             'ending' => $request->ending,
         ]);
+        
         return $this->index();
     }
 
@@ -60,8 +61,8 @@ class CalendarEventController extends Controller
      */
     public function show($id)
     {
-        $event = CalendarEvent::find($id);
-        return view('CalendarEvents.show',compact('event'));
+        $calendar = Calendar::find($id);
+        return view('calendars.show',compact('calendar'));
     }
         
     /**
