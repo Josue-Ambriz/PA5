@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-  <h2>{{ $event->title; }}</h2>
-  <p>{{ $event->starting; }}</p>
-  <p>{{ $event->ending; }}</p>
+  <h2>{{ $calendars->title; }}</h2>
+  <p>{{ $calendars->starting; }}</p>
+  <p>{{ $calendars->ending; }}</p>
 @stop
